@@ -1,0 +1,42 @@
+{% extends "groups/base.html" %}
+
+{% block title %}{{block.super}}-Performance Group Index{% endblock %}
+{% block content %}
+<h1>Performance Groups Index</h1>
+{% if latest_group_list %}
+{% for group in latest_group_list %}
+<div class="hero-unit">
+
+	<div class="row-fluid">
+		<div class="span8">
+			<h3>{{ group.name }}</h3>
+
+			{% if group.description %}
+			<p>{{group.description}}</p>
+			{% else %}
+			<p>No description available.</p>
+			{% endif %}
+
+			<p><a class="btn btn-primary" href="/groups/{{ group.id }}/">More Information</a></p>
+
+			<!-- <p><a href="/groups/{{ group.id }}/sub/">Subscribe to {{ group.name }}</a></p> -->
+		</div>
+		<div class="span4">
+			{% if group.sample_image %}
+			<img src="{{group.sample_image}}" width=300 height=300/>
+			{% else %}
+			<img src="http://www.mnit.ac.in/new/PortalProfile/images/faculty/noimage.jpg" width=300 height=300/> <!-- will need to locally store images if using for long term -->
+			{% endif %}			
+		</div>
+	</div>
+	<p>
+		<a class="btn btn-primary btn-large" href="/groups/{{ group.id }}/sub/">Subscribe to {{ group.name }}</a>
+	</p>
+</div>
+{% endfor %}
+{% else %}
+<div class="hero-unit">
+	<p>No groups are available.</p>
+</div>
+{% endif %}
+{% endblock %}

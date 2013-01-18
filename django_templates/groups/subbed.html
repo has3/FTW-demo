@@ -1,0 +1,16 @@
+{% extends "groups/base.html" %}
+
+{% block title %}{{block.super}}-{{group.name}} Subscription Page{% endblock %}
+{% block content %}
+<div class="row-fluid">
+	<div class="span10 offset1">
+		<div class="hero-unit">
+			<h2>{{ group.name }}</h2>
+
+			<p>Thank you for subscribing to {{group.name}}</p>
+			<a class="btn" href="/groups/{{ group.id }}/">Back to {{ group.name }} page</a>
+			<a class="btn" href="/groups/">Back to group index page</a>
+		</div>
+	</div>
+</div>
+{% endblock %}

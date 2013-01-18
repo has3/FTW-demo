@@ -1,0 +1,36 @@
+{% extends "groups/base.html" %}
+
+{% block title %}{{block.super}}-{{group.name}} Details{% endblock %}
+{% block content %}
+<div class="hero-unit">
+	<div class="row-fluid">
+		<div class="span8">
+			<h2>{{ group.name }}</h2>
+
+			{% if group.description %}
+			<p>{{group.description}}</p>
+			{% else %}
+			<p>No description available.</p>
+			{% endif %}
+
+			<!-- Space for more things (tags, links to website, etc) -->
+
+		</div>
+		<div class="span4">
+			{% if group.sample_image %}
+			<img src="{{group.sample_image}}" width=300 height=300/>
+			{% else %}
+			<img src="http://www.mnit.ac.in/new/PortalProfile/images/faculty/noimage.jpg" width=300 height=300/> <!-- will need to locally store images if using for long term -->
+			{% endif %}
+		</div>
+	</div>
+
+	<p>
+		<a class="btn btn-primary" href="/groups/{{ group.id }}/sub/">Subscribe to {{ group.name }}</a>
+	</p>
+	<p>
+		<a class="btn" href="/groups/">Back to group index page</a>
+		<!-- <p><a href="/groups/">Back to group index page.</a></p> -->
+	</p>
+</div>
+{% endblock %}

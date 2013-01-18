@@ -1,0 +1,23 @@
+{% extends "groups/base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}{{block.super}}-{{group.name}} Subscription Page{% endblock %}
+{% block content %}
+
+<form class="form-horizontal well" method="post" action="">
+	<fieldset>
+		<h2>{{ group.name }}</h2>
+		{% csrf_token %}
+		{{ form|crispy }} <!-- Probably need to redo the form to better fit with the bootstrap (now redone with crispy forms) -->
+		<p> Fields marked with an asterix (*) are required.</p>
+		<div class="form-actions">
+			<button type="submit" class="btn btn-primary btn-large">Submit</button>
+		</div>
+		<p>
+			<a class="btn" href="/groups/{{ group.id }}/">Back to {{ group.name }} page</a>
+			<a class="btn" href="/groups/">Back to group index page</a>
+		</p>
+	</fieldset>
+</form>
+{% endblock %}

@@ -1,0 +1,25 @@
+<html lang="en">
+<head>
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <title>{% block title %}A Site Name{% endblock %}</title>
+</head>
+
+<body>
+    <div id="topbar">
+        {% block topbar %}
+        <ul>
+            <h5><a href="/groups/">Group Index</a></h5>
+            <!-- Space for more top bar stuff -->
+        </ul>
+        {% endblock %}
+    </div>
+
+    <div id="content">
+        <div class="row-fluid">
+            <div class="span10 offset1">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
