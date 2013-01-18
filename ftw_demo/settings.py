@@ -5,6 +5,7 @@ import os
 def path(*x):
     return os.path.join(os.path.abspath(os.path.dirname(__file__)), *x)
 
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -52,6 +53,7 @@ USE_TZ = True
 # Example: "/home/media/media.lawrence.com/media/"
 MEDIA_ROOT = path('bootstrap')
 
+print MEDIA_ROOT
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
@@ -61,7 +63,7 @@ MEDIA_URL = '/bootstrap/'
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = ''
+STATIC_ROOT = path('static')
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
