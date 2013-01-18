@@ -18,7 +18,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '/home/saasbook/Desktop/work/ftwDemoGitHub/sqlite3.db',                      # Or path to database file if using sqlite3.
+        'NAME': 'sqlite3.db',                      # Or path to database file if using sqlite3.
         'USER': '',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
@@ -110,7 +110,8 @@ ROOT_URLCONF = 'ftw_demo.urls'
 WSGI_APPLICATION = 'ftw_demo.wsgi.application'
 
 TEMPLATE_DIRS = (
-    '/home/saasbook/Desktop/work/ftw_demo/django_templates'
+    '/home/ubuntu/FTW-demo/django_templates',
+    path('./django_templates/'),
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -131,6 +132,7 @@ INSTALLED_APPS = (
     'performance_groups',
 
     'crispy_forms',
+    'gunicorn',
 )
 
 # A sample logging configuration. The only tangible logging
